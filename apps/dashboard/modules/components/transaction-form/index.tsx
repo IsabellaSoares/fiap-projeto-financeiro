@@ -7,7 +7,7 @@ import { Button } from "@repo/ui/button";
 interface TransactionFormProps {
   transactionType?: string | undefined;
   setTransactionType: (value: string) => void;
-  value: string;
+  value?: string;
   setValue: (value: string) => void;
   operationType: string;
   setOperationType: (value: string) => void;

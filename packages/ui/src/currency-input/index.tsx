@@ -15,7 +15,8 @@ interface CurrencyInputProps {
   sx?: SxProps<Theme>;
 }
 
-export function formatCurrency(value: string) {
+export function formatCurrency(value?: string) {
+  if (!value) return "";
   return new Intl.NumberFormat("pt-BR", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
