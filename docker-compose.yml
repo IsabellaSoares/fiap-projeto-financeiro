@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  dashboard:
+    build:
+      context: .
+      dockerfile: ./apps/dashboard/Dockerfile
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - ui
+    volumes:
+      - .:/repo
+
+  landing_page:
+    build:
+      context: .
+      dockerfile: ./apps/landing_page/Dockerfile
+    ports:
+      - "3002:3000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - ui
+    volumes:
+      - .:/repo
+
+  ui:
+    build:
+      context: .
+      dockerfile: ./packages/ui/Dockerfile
+    ports:
+      - "6006:6006"
+    environment:
+      NODE_ENV: development
+    volumes:
+      - .:/repo
